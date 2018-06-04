@@ -1,0 +1,96 @@
+#!/bin/bash
+# work with "work" computers
+# 5/24/18
+
+##statements
+oldpc=null
+oldpcip=null
+newpc=null
+newpcip=null
+
+##script loop
+while true; do
+
+clear
+
+##menu listing
+echo "Main Menu"
+echo ""
+echo "old..."
+echo " pc: $oldpc"
+echo " ip: $oldpcip"
+echo "new..."
+echo " pc: $newpc"
+echo " ip: $newpcip"
+echo ""
+echo "Menu Selection"
+echo "1) set old tag"
+echo "2) set new tag"
+echo "3) clear"
+echo "4) map share"
+echo "5) list sso/ programs"
+echo "6) launch sso creator"
+echo ""
+echo "00) exit"
+echo ""
+echo -n "enter selection: "
+
+##user input
+read menuselection
+
+##start menu selection
+if [ $menuselection -eq 1 ]
+then
+	echo -n "  enter old tag: "
+	read oldpc
+	oldpcip=$(host $oldpc)
+
+elif [ $menuselection -eq 2 ]
+then
+	echo -n "  enter new tag: "
+	read newpc
+	newpcip=$(host $newpc)
+
+elif [ $menuselection -eq 3 ]
+then
+	echo "clearing screen"
+
+	oldpc=null
+	oldpcip=null
+	newpc=null
+	newpcip=null
+
+	sleep 1
+
+elif [ $menuselection -eq 4 ]
+then
+	echo " you selected option 4"
+	echo " **works in progress**"
+
+elif [ $menuselection -eq 5 ]
+then
+	echo " you selected option 5"
+	echo " **works in progress**"
+
+elif [ $menuselection -eq 6 ]
+then
+	echo " you selected option 6"
+	echo " **works in progress**"
+
+elif [ $menuselection -eq 00 ]
+then
+	echo "exiting"
+
+	sleep 1
+
+	exit
+
+else
+	echo " invalid entry"
+
+##end menu selection
+fi
+
+sleep 1
+
+done
